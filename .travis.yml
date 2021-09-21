@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t wesleybasson/docker-course-project-alpha -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true wesleybasson/docker-course-project-alpha npm run test
+
+language: generic
